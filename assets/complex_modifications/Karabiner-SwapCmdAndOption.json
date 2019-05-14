@@ -1,0 +1,69 @@
+{
+  "title": "Swap CMD and OPTION except in Remote Desktop",
+  "rules": [
+    {
+      "description": "Swap CMD and OPTION",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com.microsoft.rdc.macos"
+              ]
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "vendor_id": 1452
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Swap OPTION and CMD",
+      "manipulators": [
+        {
+          "conditions": [
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com.microsoft.rdc.macos"
+              ]
+            },
+            {
+              "type": "device_unless",
+              "identifiers": [
+                {
+                  "vendor_id": 1452
+                }
+              ]
+            }
+          ],
+          "from": {
+            "key_code": "left_option"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
